@@ -1,3 +1,5 @@
+package test;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
