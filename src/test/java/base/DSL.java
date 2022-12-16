@@ -51,4 +51,9 @@ public class DSL {
     public String obterValorPorTexto(By locator){
         return driver.findElement(locator).getText();
     }
+
+    public void clicarRadio(By locator){
+        driver.findElement(locator).click();
+    }
+
 }
