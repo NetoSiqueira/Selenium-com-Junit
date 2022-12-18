@@ -1,5 +1,6 @@
 package base;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -54,6 +55,12 @@ public class DSL {
 
     public void clicarRadio(By locator){
         driver.findElement(locator).click();
+    }
+
+    public String alertaObterTextoEAceitar(){
+        Alert alert = driver.switchTo().alert();
+        String valor = alert.getText();
+        return valor;
     }
 
 }

@@ -42,8 +42,8 @@ public class TestUsandoPage {
         //Cadastro
         cadastropage.setNome("Siqueira");
         cadastropage.setSobrenome("Neto");
-        cadastropage.setSexoMasculino();
-        cadastropage.setComidaFavorita();
+        cadastropage.setSexo("M");
+        cadastropage.setComidaFavorita("Frango");
         cadastropage.setEscolaridade("Superior");
         cadastropage.setEsporte("Natacao");
         cadastropage.Cadastrar();
