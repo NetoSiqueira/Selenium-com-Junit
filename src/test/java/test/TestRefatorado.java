@@ -46,12 +46,15 @@ public class TestRefatorado {
 
     }
 
-    @After
-    public void fechar(){
-        driver.quit();
+//    @After
+//    public void fechar(){
+//        driver.quit();
+//    }
+
+    @Test
+    public void ClicarNobotaoTabela(){
+        dsl.clicarBotaoTabela("Nome","Maria","Botao");
     }
-
-
 
 
 

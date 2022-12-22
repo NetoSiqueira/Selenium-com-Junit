@@ -75,4 +75,9 @@ public class TestPage {
        return dsl.alertaObterTextoEAceitar();
     }
 
+    public void ClicarbotaoComTabela(String colunaBusca, String valorLinha, String colunaBotao) {
+          dsl.clicarBotaoTabela(colunaBusca,valorLinha,colunaBotao);
+    }
 }
+
+

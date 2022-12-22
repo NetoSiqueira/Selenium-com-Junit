@@ -45,10 +45,10 @@ public class TestParametrizacao {
 
     }
 
-    @After
-    public void fechar(){
-        driver.quit();
-    }
+//    @After
+//    public void fechar(){
+//        driver.quit();
+//    }
 
     @Parameterized.Parameters
     public static Collection<Object[]> getCollection(){
@@ -74,5 +74,8 @@ public class TestParametrizacao {
         Assert.assertEquals(msg, cadastropage.obterMsg());
 
 }
+
+
+
 
 }
