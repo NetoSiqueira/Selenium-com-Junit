@@ -27,7 +27,9 @@ public class DSL {
     public void clicar(String locator){
         driver.findElement(By.id(locator)).click();
     }
-
+    public void clicar(By locator){
+        driver.findElement(locator).click();
+    }
     public boolean verificarBotaoClicado(String locator){
         return driver.findElement(By.id(locator)).isSelected();
     }
@@ -107,7 +109,11 @@ public class DSL {
         return idColuna;
     }
 
+    public void selecionaComboPrime(String radical, String valor){
+        driver.findElement(By.xpath("//*[@id = '"+radical+":option']/../..//span")).click();
+        driver.findElement(By.xpath("//*[@id = '"+radical+":option_panel']//li[.='"+valor+"']")).click();
 
+    }
 
 
 }

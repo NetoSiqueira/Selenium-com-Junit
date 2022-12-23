@@ -48,11 +48,11 @@ public class TestUsandoPage {
         cadastropage.setEsporte("Natacao");
         cadastropage.Cadastrar();
         //Teste verificar que inicia com Cadastrado
-        Assert.assertTrue(cadastropage.obterResultadoCadastro().startsWith("Cadastrado!"));
+         Assert.assertEquals("Cadastrado!",cadastropage.obterResultadoCadastro());
 
 
         //Teste verficar que terminar com Siqueira
-        Assert.assertTrue(cadastropage.obterResultadoNome().endsWith("Siqueira"));
+        Assert.assertEquals("Siqueira",cadastropage.obterResultadoNome());
     }
 
 }

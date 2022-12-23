@@ -38,5 +38,6 @@ public class TesteCadastro {
 
         //Teste verficar que terminar com Siqueira
         Assert.assertTrue(driver.findElement(By.id("descNome")).getText().endsWith("Siqueira"));
+
     }
 }

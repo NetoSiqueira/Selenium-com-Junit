@@ -57,12 +57,10 @@ public class TestPage {
         dsl.clicar("elementosForm:cadastrar");
     }
 
-    public String obterResultadoCadastro(){
-        return dsl.obterValorPorTexto(By.id("resultado"));
-    }
+
 
     public String obterResultadoNome(){
-        return dsl.obterValorPorTexto(By.id("descNome"));
+        return dsl.obterValorPorTexto(By.xpath("//*[@id='descNome']/span"));
     }
 
     public void setDoisEsportes(List<String> esporte){
@@ -77,6 +75,10 @@ public class TestPage {
 
     public void ClicarbotaoComTabela(String colunaBusca, String valorLinha, String colunaBotao) {
           dsl.clicarBotaoTabela(colunaBusca,valorLinha,colunaBotao);
+    }
+
+    public String obterResultadoCadastro(){
+       return dsl.obterValorPorTexto(By.xpath("//*[@id='resultado']/span"));
     }
 }
 
