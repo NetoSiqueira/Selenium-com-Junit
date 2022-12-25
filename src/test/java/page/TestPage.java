@@ -9,9 +9,7 @@ import java.util.List;
 public class TestPage {
     private DSL dsl;
 
-    public TestPage(WebDriver driver) {
-        dsl = new DSL(driver);
-    }
+
 
 
     public void setNome(String nome){

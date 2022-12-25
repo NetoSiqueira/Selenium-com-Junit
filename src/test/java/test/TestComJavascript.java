@@ -12,31 +12,30 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static core.DriverFactory.getDriver;
+
 public class TestComJavascript {
 
-    private WebDriver driver;
-
+   
 
 
     @Before
     public void inicializa(){
-        WebDriverManager.chromedriver().setup();
-        System.out.println("Comecamos aqui");
-        driver = new ChromeDriver();
-        driver.get("file:///" + System.getProperty("user.dir") + "/target/componentes.html");
+       
+        getDriver().get("file:///" + System.getProperty("user.dir") + "/target/componentes.html");
     }
 
 //    @After
 //    public void fechar(){
-//        driver.quit();
+//        getDriver().quit();
 //    }
 
     @Test
     public void testJavascript(){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
 //        js.executeScript("alert('Testando js via selenium')");
         js.executeScript("document.getElementById('elementosForm:nome').value =  'Deu certo por js'");
-        WebElement element = driver.findElement(By.id("elementosForm:nome"));
+        WebElement element = getDriver().findElement(By.id("elementosForm:nome"));
     }
 
 

@@ -9,16 +9,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static core.DriverFactory.getDriver;
+
 public class TestPrime {
     private DSL dsl;
-    private WebDriver driver;
+
     @Before
     public void inicializa(){
-        WebDriverManager.chromedriver().setup();
-        System.out.println("Comecamos aqui");
-        driver = new ChromeDriver();
-        driver.get("https://www.primefaces.org/showcase/ui/input/oneRadio.xhtml?jfwid=7e7c5");
-        dsl = new DSL(driver);
+
+        getDriver().get("https://www.primefaces.org/showcase/ui/input/oneRadio.xhtml?jfwid=7e7c5");
+        dsl = new DSL();
 
 
     }

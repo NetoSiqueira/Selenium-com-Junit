@@ -12,6 +12,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static core.DriverFactory.getDriver;
+
 public class TestRefatorado {
 
     private DSL dsl;
@@ -37,18 +39,15 @@ public class TestRefatorado {
 
     @Before
     public void inicializa(){
-        WebDriverManager.chromedriver().setup();
-        System.out.println("Comecamos aqui");
-        driver = new ChromeDriver();
-        driver.get("file:///" + System.getProperty("user.dir") + "/target/componentes.html");
-        dsl = new DSL(driver);
+        getDriver().get("file:///" + System.getProperty("user.dir") + "/target/componentes.html");
+        dsl = new DSL();
 
 
     }
 
 //    @After
 //    public void fechar(){
-//        driver.quit();
+//        getDriver().quit();
 //    }
 
     @Test

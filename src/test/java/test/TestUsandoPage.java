@@ -15,25 +15,24 @@ import page.TestPage;
 
 import java.util.PrimitiveIterator;
 
-public class TestUsandoPage {
-    private WebDriver driver;
+import static core.DriverFactory.getDriver;
 
+public class TestUsandoPage {
+   
 
     private TestPage cadastropage;
 
     @Before
     public void inicializa(){
-        WebDriverManager.chromedriver().setup();
-        System.out.println("Comecamos aqui");
-        driver = new ChromeDriver();
-        driver.get("file:///" + System.getProperty("user.dir") + "/target/componentes.html");
-       cadastropage = new TestPage(driver);
+
+        getDriver().get("file:///" + System.getProperty("user.dir") + "/target/componentes.html");
+       cadastropage = new TestPage();
 
     }
 
     @After
     public void fechar(){
-        driver.quit();
+        getDriver().quit();
     }
 
     @Test

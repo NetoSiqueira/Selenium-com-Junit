@@ -17,10 +17,11 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import static core.DriverFactory.getDriver;
+
 @RunWith(Parameterized.class)
 public class TestParametrizacao {
-    private WebDriver driver;
-    private TestPage cadastropage;
+       private TestPage cadastropage;
     @Parameterized.Parameter(value = 0)
     public String nome ;
     @Parameterized.Parameter(value = 1)
@@ -38,16 +39,14 @@ public class TestParametrizacao {
 
     @Before
     public void inicializa(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.get("file:///" + System.getProperty("user.dir") + "/target/componentes.html");
-        cadastropage = new TestPage(driver);
+        getDriver().get("file:///" + System.getProperty("user.dir") + "/target/componentes.html");
+        cadastropage = new TestPage();
 
     }
 
 //    @After
 //    public void fechar(){
-//        driver.quit();
+//        getDriver().quit();
 //    }
 
     @Parameterized.Parameters

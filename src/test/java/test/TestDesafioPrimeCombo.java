@@ -6,19 +6,17 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
+import static core.DriverFactory.getDriver;
+
 
 public class TestDesafioPrimeCombo {
     private DSL dsl;
-    private WebDriver driver;
+
     @Before
     public void inicializa() {
-        WebDriverManager.chromedriver().setup();
-        System.out.println("Comecamos aqui");
-        driver = new ChromeDriver();
-        driver.get(" https://www.primefaces.org/showcase/ui/input/oneMenu.xhtml?jfwid=97b7c");
-        dsl = new DSL(driver);
+        getDriver().get(" https://www.primefaces.org/showcase/ui/input/oneMenu.xhtml?jfwid=97b7c");
+        dsl = new DSL();
 
     }
 

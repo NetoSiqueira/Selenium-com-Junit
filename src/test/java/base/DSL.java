@@ -8,68 +8,66 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class DSL {
-    private WebDriver driver;
+import static core.DriverFactory.getDriver;
 
-    public DSL(WebDriver driver) {
-        this.driver = driver;
-    }
+public class DSL {
+
 
     public void escreve(String locator, String texto){
-        driver.findElement(By.id(locator)).sendKeys(texto);
+        getDriver().findElement(By.id(locator)).sendKeys(texto);
     }
 
 
     public String obterValor(String locator){
-     return  driver.findElement(By.id(locator)).getAttribute("value");
+     return  getDriver().findElement(By.id(locator)).getAttribute("value");
     }
 
     public void clicar(String locator){
-        driver.findElement(By.id(locator)).click();
+        getDriver().findElement(By.id(locator)).click();
     }
     public void clicar(By locator){
-        driver.findElement(locator).click();
+        getDriver().findElement(locator).click();
     }
     public boolean verificarBotaoClicado(String locator){
-        return driver.findElement(By.id(locator)).isSelected();
+        return getDriver().findElement(By.id(locator)).isSelected();
     }
 
 
     public void selecionarCombo(String locator, String escolaridade){
-        WebElement element = driver.findElement(By.id(locator));
+        WebElement element = getDriver().findElement(By.id(locator));
         Select combo = new Select(element);
 
         combo.selectByVisibleText(escolaridade);
     }
 
     public String obterValorCombo(String locator){
-        WebElement element = driver.findElement(By.id(locator));
+        WebElement element = getDriver().findElement(By.id(locator));
         Select combo = new Select(element);
 
         return combo.getFirstSelectedOption().getText();
     }
 
     public void clicarLink(String locator){
-        driver.findElement(By.linkText(locator)).click();
+        getDriver().findElement(By.linkText(locator)).click();
     }
 
     public String obterValorPorTexto(By locator){
-        return driver.findElement(locator).getText();
+        return getDriver().findElement(locator).getText();
     }
 
     public void clicarRadio(By locator){
-        driver.findElement(locator).click();
+        getDriver().findElement(locator).click();
     }
 
     public String alertaObterTextoEAceitar(){
-        Alert alert = driver.switchTo().alert();
+        Alert alert = getDriver().switchTo().alert();
         String valor = alert.getText();
         return valor;
     }
 
     public void clicarBotaoTabela(String colunaBusca, String valorLinha, String colunaBotao){
         //procurar coluna do registro
-            WebElement tabela = driver.findElement(By.xpath("//table[@id='elementosForm:tableUsuarios']"));
+            WebElement tabela = getDriver().findElement(By.xpath("//table[@id='elementosForm:tableUsuarios']"));
             int idColuna = obterIndiceColuna(colunaBusca,tabela);
 
         //encontrar a linha do registro
@@ -110,8 +108,8 @@ public class DSL {
     }
 
     public void selecionaComboPrime(String radical, String valor){
-        driver.findElement(By.xpath("//*[@id = '"+radical+":option']/../..//span")).click();
-        driver.findElement(By.xpath("//*[@id = '"+radical+":option_panel']//li[.='"+valor+"']")).click();
+        getDriver().findElement(By.xpath("//*[@id = '"+radical+":option']/../..//span")).click();
+        getDriver().findElement(By.xpath("//*[@id = '"+radical+":option_panel']//li[.='"+valor+"']")).click();
 
     }
 
