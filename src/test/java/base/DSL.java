@@ -11,7 +11,8 @@ import java.util.List;
 import static core.DriverFactory.getDriver;
 
 public class DSL {
-
+    public DSL() {
+    }
 
     public void escreve(String locator, String texto){
         getDriver().findElement(By.id(locator)).sendKeys(texto);

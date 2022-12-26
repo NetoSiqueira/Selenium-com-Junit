@@ -1,6 +1,7 @@
 package test;
 
 
+import core.BasePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Assert;
@@ -8,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import page.TestPage;
@@ -20,7 +22,7 @@ import java.util.List;
 import static core.DriverFactory.getDriver;
 
 @RunWith(Parameterized.class)
-public class TestParametrizacao {
+public class TestParametrizacao  {
        private TestPage cadastropage;
     @Parameterized.Parameter(value = 0)
     public String nome ;
@@ -44,10 +46,7 @@ public class TestParametrizacao {
 
     }
 
-//    @After
-//    public void fechar(){
-//        getDriver().quit();
-//    }
+
 
     @Parameterized.Parameters
     public static Collection<Object[]> getCollection(){
@@ -71,6 +70,8 @@ public class TestParametrizacao {
        cadastropage.Cadastrar();
        System.out.println(msg);
         Assert.assertEquals(msg, cadastropage.obterMsg());
+        Alert alert = getDriver().switchTo().alert();
+        alert.accept();
 
 }
 

@@ -1,8 +1,10 @@
 package test;
 
+import core.BasePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,15 +13,16 @@ import org.openqa.selenium.support.ui.Select;
 
 import static core.DriverFactory.getDriver;
 
-public class TesteCadastro {
+public class TesteCadastro extends BasePage {
 
-
+    @Before
+    public void inicializa(){
+        getDriver().get("file:///" + System.getProperty("user.dir") + "/target/componentes.html");
+    }
 
     @Test
     public void TesteAlertPronmpt() {
-       
-        getDriver().get("file:///" + System.getProperty("user.dir") + "/target/componentes.html");
-
+        
         //Cadastro
         getDriver().findElement(By.id("elementosForm:nome")).sendKeys("Siqueira");
         getDriver().findElement(By.id("elementosForm:sobrenome")).sendKeys("Neto");

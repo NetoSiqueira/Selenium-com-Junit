@@ -1,13 +1,17 @@
 package page;
 
 import base.DSL;
+import core.BasePage;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.util.List;
 
-public class TestPage {
-    private DSL dsl;
+import static core.DriverFactory.getDriver;
+
+public class TestPage extends BasePage {
+
 
 
 

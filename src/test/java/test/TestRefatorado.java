@@ -1,28 +1,24 @@
 package test;
 
-import base.DSL;
+import core.BasePage;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 
 import static core.DriverFactory.getDriver;
 
-public class TestRefatorado {
+public class TestRefatorado extends BasePage {
 
-    private DSL dsl;
-    private  WebDriver driver;
+
 
     @Test
     public void TestAreaRefatorado(){
-
-
         dsl.escreve("elementosForm:sugestoes", "teste");
         Assertions.assertEquals("teste", dsl.obterValor("elementosForm:sugestoes"));
 
@@ -40,21 +36,16 @@ public class TestRefatorado {
     @Before
     public void inicializa(){
         getDriver().get("file:///" + System.getProperty("user.dir") + "/target/componentes.html");
-        dsl = new DSL();
-
-
     }
 
-//    @After
-//    public void fechar(){
-//        getDriver().quit();
-//    }
 
     @Test
     public void ClicarNobotaoTabela(){
         dsl.clicarBotaoTabela("Nome","Maria","Botao");
+        Alert alert  = getDriver().switchTo().alert();
+
+        String texto =  alert.getText();
+        Assert.assertEquals("Maria", texto);
     }
-
-
 
 }

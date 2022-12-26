@@ -1,5 +1,6 @@
 package test;
 
+import core.BasePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -13,7 +14,7 @@ import java.util.List;
 
 import static core.DriverFactory.getDriver;
 
-public class TesteFormulario {
+public class TesteFormulario extends BasePage {
 
 
     @Test
