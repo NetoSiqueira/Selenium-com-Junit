@@ -22,7 +22,7 @@ public class TesteCadastro extends BasePage {
 
     @Test
     public void TesteAlertPronmpt() {
-        
+
         //Cadastro
         getDriver().findElement(By.id("elementosForm:nome")).sendKeys("Siqueira");
         getDriver().findElement(By.id("elementosForm:sobrenome")).sendKeys("Neto");
